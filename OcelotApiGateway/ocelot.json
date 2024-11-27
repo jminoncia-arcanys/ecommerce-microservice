@@ -1,0 +1,94 @@
+{
+  "Routes": [
+    // Product API Routes
+    {
+      "DownstreamPathTemplate": "/api/Product/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "product-service",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/products/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Product/add-to-cart",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "product-service",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/products/add-to-cart",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Product/manage-inventory",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "product-service",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/products/manage-inventory",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+
+    // User API Routes
+    {
+      "DownstreamPathTemplate": "/api/User/register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userauth-service",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/users/register",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/User/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userauth-service",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/users/login",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/User/update-profile/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userauth-service",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/users/update-profile/{id}",
+      "UpstreamHttpMethod": [ "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/User/change-password/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userauth-service",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/users/change-password/{id}",
+      "UpstreamHttpMethod": [ "PUT" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:31115"
+  }
+}

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocelot-gateway-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ocelot-gateway
+  template:
+    metadata:
+      labels:
+        app: ocelot-gateway
+    spec:
+      containers:
+      - name: ocelot-gateway
+        image: jminoncia/ocelot-gateway:latest
+        ports:
+        - containerPort: 8080

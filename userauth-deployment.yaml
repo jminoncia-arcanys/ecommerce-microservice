@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userauthservice-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: userauthservice
+  template:
+    metadata:
+      labels:
+        app: userauthservice
+    spec:
+      containers:
+      - name: userauthservice
+        image: jminoncia/userauthservice:latest
+        ports:
+        - containerPort: 8080
